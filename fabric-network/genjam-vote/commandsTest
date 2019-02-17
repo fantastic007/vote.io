@@ -1,0 +1,19 @@
+curl -s -X POST http://localhost:5000/channels -H "authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDkxMTMyODQsInVzZXJuYW1lIjoiU2h1aGFuIiwib3JnTmFtZSI6Ik9yZzEiLCJpYXQiOjE1NDkwNzcyODR9.zdbffWqBqdxo4DnoTNUOFG60EImao9Y2chnwk8-NFd8" -H "content-type: application/json" -d '{"channelName":"mychannel","channelConfigPath":"../artifacts/channel/mychannel.tx"}'
+
+
+
+
+
+
+curl -s -X POST http://localhost:5000/channels/mychannel/peers -H "authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDkxMTMyODQsInVzZXJuYW1lIjoiU2h1aGFuIiwib3JnTmFtZSI6Ik9yZzEiLCJpYXQiOjE1NDkwNzcyODR9.zdbffWqBqdxo4DnoTNUOFG60EImao9Y2chnwk8-NFd8" -H "content-type: application/json" -d '{ "peers": ["peer0.org1.example.com","peer1.org1.example.com"]}'
+
+
+curl -s -X POST http://localhost:5000/chaincodes -H "authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDkxMTMyODQsInVzZXJuYW1lIjoiU2h1aGFuIiwib3JnTmFtZSI6Ik9yZzEiLCJpYXQiOjE1NDkwNzcyODR9.zdbffWqBqdxo4DnoTNUOFG60EImao9Y2chnwk8-NFd8" -H "content-type: application/json" -d '{"peers":["peer0.org1.example.com","peer1.org1.example.com"],"chaincodeName":"mycc","chaincodePath":"github.com/example_cc/go","chaincodeType": "golang","chaincodeVersion":"v0"}'
+
+curl -s -X POST http://localhost:5000/channels/mychannel/chaincodes -H "authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDkxMTMyODQsInVzZXJuYW1lIjoiU2h1aGFuIiwib3JnTmFtZSI6Ik9yZzEiLCJpYXQiOjE1NDkwNzcyODR9.zdbffWqBqdxo4DnoTNUOFG60EImao9Y2chnwk8-NFd8" -H "content-type: application/json" -d '{"chaincodeName":"mycc","chaincodeVersion":"v0","chaincodeType": "golang","args":["a","100","b","200"]}'
+
+
+curl -s -X POST http://localhost:5000/channels/mychannel/chaincodes/mycc -H "authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDkxMTYyOTgsInVzZXJuYW1lIjoiSmltIiwib3JnTmFtZSI6Ik9yZzEiLCJpYXQiOjE1NDkwODAyOTh9.x8_oIS7qJwiNRGpU0CNPJFnKxWCKKKrau_9cS_5gC0w" -H "content-type: application/json" -d '{"peers":["peer0.org1.example.com","peer0.org2.example.com"],"fcn":"query","args":["a"]}'
+
+curl -s -X GET http://localhost:4000/channels/mychannel/transactions/?peer=peer1 -H "authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE0OTQ4NjU1OTEsInVzZXJuYW1lIjoiSmltIiwib3JnTmFtZSI6Im9yZzEiLCJpYXQiOjE0OTQ4NjE5OTF9.yWaJhFDuTvMQRaZIqg20Is5t-JJ_1BP58yrNLOKxtNI" \
+  -H "content-type: application/json"
